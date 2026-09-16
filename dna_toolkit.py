@@ -73,29 +73,7 @@ def mol_weight():
         elif val == "G":
             mol_weight += 329.21
     print("Sequence Weight:",mol_weight,"g/mol")
-# 10. Save Results
-def save_results():
-    DNA = input("Please enter DNA sequence: ").upper()
-    with open("dna_results.txt", "a") as f:
-        f.write("=========================\n")
-        f.write(f"DNA: {DNA}\n")
-        f.write(f"Complement: {complement_DNA(DNA)}\n")
-        f.write(f"Reverse: {DNA[::-1]}\n")
-        f.write(f"Reverse Complement: {complement_DNA(DNA)[::-1]}\n")
-        f.write(f"RNA: {DNA.replace('T','U')}\n")
-        f.write(f"AT Count: {DNA.count('A') + DNA.count('T')}\n")
-        f.write(f"GC Count: {DNA.count('G') + DNA.count('C')}\n")
-        f.write(f"Base Count: {len(DNA)}\n")
-        f.write("=========================\n\n")
-    print("Results saved successfully!")
-# 11. Loading Previous Analysis
-def load_results():
-    try:
-        with open("dna_results.txt", "r") as f:
-            print(f.read())
-    except FileNotFoundError:
-        print("No previous analyses found.")
-# 12. Exit
+# 10. Exit
 
 def dna_tool():
     while True:
@@ -111,9 +89,7 @@ def dna_tool():
         7. GC Base Count
         8. Bases Count
         9. Molecular Weight
-        10.Save Results
-        11.Load Previous Analysis
-        12.Exit
+        10Exit
         """)
 
         choice = int(input("Choose: "))
@@ -136,10 +112,6 @@ def dna_tool():
         elif choice == 9:
             mol_weight()
         elif choice == 10:
-            save_results()
-        elif choice == 11:
-            load_results()
-        elif choice == 12:
             print("You have exited")
             break
         else:

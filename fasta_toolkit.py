@@ -37,25 +37,7 @@ def validate():
             print("Invalid Fasta Sequence entered")
             return
     print("Valid Fasta Sequence")
-
-# 6. Save Report
-def save_report():
-    sequence = seq()
-
-    with open("fasta_report.txt", "w") as f:
-        f.write("FASTA Header:\n")
-
-        for val in lines:
-            if val.startswith(">"):
-                f.write(val + "\n")
-        f.write("\nSequence:\n")
-        f.write(sequence + "\n")
-        f.write("\nSequence Length:\n")
-        f.write(str(len(sequence)) + "\n")
-
-    print("Report saved successfully.")
-
-# 7. Menu / Exit
+# 6. Menu / Exit
 def fasta_tool():
     while True:
         print("""
@@ -65,8 +47,7 @@ def fasta_tool():
     3. Display Sequence
     4. Sequence Length
     5. Validate Sequence
-    6. Save Report
-    7. Exit
+    6. Exit
     """)
 
         choice = int(input("Choose: "))
@@ -82,8 +63,6 @@ def fasta_tool():
         elif choice == 5:
             validate()
         elif choice == 6:
-            save_report()
-        elif choice == 7:
             print("You have exited")
             break
         else:

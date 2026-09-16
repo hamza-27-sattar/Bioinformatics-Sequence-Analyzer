@@ -38,27 +38,7 @@ def mol_weight():
         elif val == "G":
             mol_weight += 345.21
     print("Sequence Weight:",mol_weight,"g/mol")
-# 7. Save Results
-def save_results():
-    RNA = (input("Please enter RNA sequence: ")).upper()
-    with open("rna_results.txt", "a") as f:
-        f.write("=========================\n")
-        f.write(f"RNA: {RNA}\n")
-        f.write(f"DNA: {RNA.replace('U','T')}\n")
-        f.write(f"AU Count: {RNA.count('A') + RNA.count('U')}\n")
-        f.write(f"GC Count: {RNA.count('G') + RNA.count('C')}\n")
-        f.write(f"Base Count: {len(RNA)}\n")
-        f.write("=========================\n\n")
-
-    print("Results saved successfully!")
-# 8. Loading Previous Analysis
-def load_results():
-    try:
-        with open("rna_results.txt", "r") as f:
-            print(f.read())
-    except FileNotFoundError:
-        print("No previous analyses found.")
-# 9. Exit
+# 7. Exit
 
 def rna_tool():
     while True:
@@ -71,9 +51,7 @@ def rna_tool():
         4. GC Base Count
         5. Bases Count
         6. Sequence Molecular Weight
-        7. Save Results
-        8. Load Previous Analysis
-        9. Exit
+        7. Exit
         """)
 
         choice = int(input("Choose: "))
@@ -91,10 +69,6 @@ def rna_tool():
         elif choice == 6:
             mol_weight()
         elif choice == 7:
-            save_results()
-        elif choice == 8:
-            load_results()
-        elif choice == 9:
             print("You have exited")
             break
         else:

@@ -237,76 +237,7 @@ def full_expand():
         elif val == "V":
             full_names += "Valine-"
     print(full_names)
-# 12. Save Results
-def save_results():
-    AA = (input("Please enter any of the 20 Amino Acids sequence: ")).upper()
-    weight = 0
-    for val in AA:
-        if val == "A":
-            weight += 71.1
-        elif val == "R":
-            weight += 156.2
-        elif val == "N":
-            weight += 114.1
-        elif val == "D":
-            weight += 115.1
-        elif val == "C":
-            weight += 103.1
-        elif val == "E":
-            weight += 129.1
-        elif val == "Q":
-            weight += 128.1
-        elif val == "G":
-            weight += 57.1
-        elif val == "H":
-            weight += 137.1
-        elif val == "I":
-            weight += 113.2
-        elif val == "L":
-            weight += 113.2
-        elif val == "K":
-            weight += 128.2
-        elif val == "M":
-            weight += 131.2
-        elif val == "F":
-            weight += 147.1
-        elif val == "P":
-            weight += 97.1
-        elif val == "S":
-            weight += 87.1
-        elif val == "T":
-            weight += 101.1
-        elif val == "W":
-            weight += 186.2
-        elif val == "Y":
-            weight += 163.2
-        elif val == "V":
-            weight += 99.1
-    with open("protein_results.txt","a") as f:
-
-        f.write("\n===============================\n")
-        f.write("Protein Toolkit Report\n")
-        f.write("===============================\n")
-        f.write(f"Sequence : {AA}\n")
-        f.write(f"Length   : {len(AA)} amino acids\n")
-        f.write(f"Polar Residues        : {sum(1 for x in AA if x in ('T','S','C','Y','N','Q','D','E','K','R','H'))}\n")
-        f.write(f"Hydrophobic Residues  : {sum(1 for x in AA if x in ('A','G','V','L','I','P','F','M','W'))}\n")
-        f.write(f"Acidic Residues : {AA.count('D') + AA.count('E')}\n")
-        f.write(f"Basic Residues  : {AA.count('K') + AA.count('R') + AA.count('H')}\n")
-        f.write(f"Peptide Molecular Weight : {weight} Da\n")
-        f.write(f"GC-like Aromatic Residues : {AA.count('F') + AA.count('W') + AA.count('Y')}\n")
-        f.write("===============================\n\n")
-
-    print("Results Saved Successfully!")
-# 13. Load Previous Results
-def load_results():
-    try:
-        with open("protein_results.txt", "r") as f:
-            print(f.read())
-    except FileNotFoundError:
-        print("No previous analyses found.")
-# 14. Exit
-
+# 12. Exit
 def protein_tool():
     while True:
 
@@ -323,9 +254,7 @@ def protein_tool():
             9. Aromatic Amino Acids
             10.Three Letter Sequence
             11.Full Length Sequence
-            12.Save Results
-            13.Load Previous Results
-            14.Exit
+            12.Exit
             """)
 
             choice = int(input("Choose: "))
@@ -353,10 +282,6 @@ def protein_tool():
             elif choice == 11:
                 full_expand()
             elif choice == 12:
-                save_results()
-            elif choice == 13:
-                load_results()
-            elif choice == 14:
                 print("You have exited")
                 break
             else:
